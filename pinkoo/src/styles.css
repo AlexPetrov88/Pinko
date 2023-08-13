@@ -1,0 +1,410 @@
+/* You can add global styles to this file, and also import other style files */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+
+
+
+
+/* ------------------------GLOBAL STYLES------------------------- */
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJbecnFHGPezSQ.woff2") format('woff2');
+    unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+  }
+  /* latin-ext */
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJnecnFHGPezSQ.woff2") format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2") format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+
+body {
+    background-color: rgb(246, 244, 244);
+    max-width: 1440px;
+    color: black;
+    font-size: 18px;
+    /* background-color: pink; */
+}
+
+.link {
+    text-decoration: none;
+}
+
+.link:visited {
+    color: black;
+}
+
+.link:hover {
+    color: rgb(197, 37, 91);
+    cursor: pointer;
+}
+
+.red {
+    border-color: red;
+}
+
+.green {
+    border-color: green;
+}
+
+
+/* NAVIGATION */
+.btn {
+    color: rgb(197, 37, 91);
+    border: 1px solid rgb(197, 37, 91);
+    border-radius: 16px;
+    padding: 2px 12px;
+    margin-left: 6px;
+    background-color: transparent;
+}
+
+.btn:hover {
+    color: white;
+    border: 1px solid rgb(197, 37, 91);
+    background-color: rgb(197, 37, 91);
+    cursor: pointer;
+}
+
+
+/* DETAILS */
+
+.details {
+    max-width: 1440px;
+    /* background-color: rgb(251, 104, 134); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+} 
+
+.detailsContainer {
+    max-width: 1100px;
+    min-width: 320px;
+    margin: 40px auto;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+
+.detailImgContainer {
+    width: 1100px;
+    height: 300px;
+}
+
+.daetailImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detailContent {
+    text-align: center;
+    background-color: #ECECEC;
+    padding: 16px;
+}
+.create-comment {
+    width: 500px;
+    height: 350px;
+}
+li.comment {
+    width: 400px;
+    color: black;
+    border: 1px solid #ECECEC;
+    background-color: #ECECEC;
+    border-radius: 16px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+
+}
+
+.textComment {
+    border: 1px solid pink;
+}
+.labelComment {
+    color: black;
+}
+.btnComment {
+    width: 200px;
+    color: black;
+    border: 1px solid #ECECEC;
+    border-radius: 16px;
+    padding: 2px 6px;
+    margin-left: 6px;
+    background-color: #ECECEC;
+}
+
+.btnComment:hover {
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+/* LOGIN REGISTER */
+#login-page {
+    margin: 40px auto;
+    position: relative;
+    width: 450px;
+    height: auto;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: rgb(231, 231, 231);
+    z-index: 0;
+}
+
+#register-page {
+    margin: 40px auto;
+    position: relative;
+    width: 450px;
+    height: auto;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: rgb(231, 231, 231);
+}
+
+.container {
+    
+    padding: 40px;
+}
+
+.brand-logo {
+    height: 100px;
+    width: 100px;
+    background: url("./assets/images/logo.png");
+    margin: auto;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.container>h1 {
+    margin-top: 15px;
+    font-weight: 900;
+    font-size: 2.7rem;
+    text-align: center;
+    color: black;
+    letter-spacing: 1px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 17px;
+}
+
+label,
+input {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+label {
+    margin-bottom: 8px;
+    font-size: 27px;
+    color: rgb(197, 37, 91);
+    margin-top: 13px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+label:nth-of-type(2) {
+    margin-top: 20px;
+}
+
+input::placeholder {
+    color: rgba(184, 179, 179, 0.678);
+};
+
+
+label[for="female"] {
+    margin-top: 10px;
+}
+
+input[type="nickname"],
+input[type="password"],
+input[type="number"],
+input[type="email"] {
+    background: #ecf0f3;
+    padding: 30px;
+    padding-left: 20px;
+    height: 50px;
+    margin-top: 10px;
+    font-size: 24px;
+    border-radius: 50px;
+    
+}
+
+label[for="terms"]>input {
+    display: inline;
+}
+
+.btn.submit {
+    margin-top: 30px;
+    background-color: transparent;
+    height: 60px;
+    border-radius: 20px;
+    color: rgb(197, 37, 91);
+    font-size: 26px;
+    cursor: pointer;
+    font-weight: 900;
+    transition: 0.5s;
+}
+
+.btn.submit:hover {
+    color: white;
+    background-color: rgb(197, 37, 91);
+}
+
+.container {
+    text-align: left;
+    margin-top: 0px;
+}
+
+.field>span {
+    position: absolute;
+    font-size: 18px;
+    bottom: 17px;
+    right: 8px;
+    text-decoration: none;
+    color: white;
+    background: rgb(197, 37, 91);
+    border-radius: 10px;
+    padding: 5px;
+}
+.field>span a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+.field>span a:hover {
+    color: rgb(145, 206, 227);
+}
+
+
+/* CREATE EDIT */
+#create-page,
+#edit-page {
+    margin: 40px auto;
+    position: relative;
+    width: 850px;
+    height: auto;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    background: rgb(231, 231, 231);
+}
+
+input[type="text"] {
+    background: #ecf0f3;
+    padding: 30px;
+    padding-left: 20px;
+    height: 50px;
+    margin-top: 10px;
+    font-size: 24px;
+    border-radius: 50px;
+}
+
+textarea {
+    width: 100%;
+    min-width: 20vw;
+    min-height: 7em;
+    border: 2px solid #86a480;
+    border-radius: 0.7em;
+    font-size: 26px;
+    border: 2px solid rgb(197, 37, 91);
+    background-color: #ecf0f3;
+    margin-top: 7px;
+    color: black;
+}

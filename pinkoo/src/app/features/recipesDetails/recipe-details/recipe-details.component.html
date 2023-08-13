@@ -1,0 +1,57 @@
+<section class="details">
+    <div class="detailsContainer">
+        <div class="detailImgContainer">
+            <img src="{{ recipe?.imageUrl }}" alt="" class="daetailImg" />
+        </div>
+        <div class="detailContent">
+            <h2 class="recipeTitle">Recipe Details</h2>
+            <h3 class="recipeName">{{ recipe?.recipeName }}</h3>
+            <span class="recipeChef">{{ recipe?.chef }}</span>
+            <p class="recipeTimeForCooking">{{ recipe?.time }}</p>
+            <p class="recipeSummary">{{ recipe?.summary }}</p>
+            <!-- {isOwner && ( -->
+            <button class="btn" (click)="onDeleteRecipe()">Delete</button>
+            <a routerLink="/edit" class="link"><button class="btn">Edit</button></a>
+            <!-- )} -->
+        </div>
+        <div class="details-comments">
+            <h2>Comments:</h2>
+            <ul role="list" *ngIf="comments">
+            
+                <li *ngFor="let comment of comments" class="comment">
+
+                    <p *ngIf="comment">{{ comment }}: id or name</p>
+                    {{ comment | json }}
+                </li>
+
+            </ul>
+            
+            <!-- {!recipe.comments?.length && ( -->
+            <p class="no-comment">No comments.</p>
+            <!-- )} -->
+        </div>
+        <!-- {isAuthenticated && -->
+        <!-- <AddComment onCommentSubmit="{onCommentSubmit}" /> -->
+        <article class="create-comment">
+            <label class="labelComment">Add new comment:</label>
+            <form class="form" [formGroup]="commentForm" (ngSubmit)="heandlerAddComment()">
+                <textarea
+                    class="textComment"
+                    name="commentText"
+                    placeholder="Comment......"
+                    formControlName="commentText"
+                >
+                </textarea>
+                <ng-container *ngIf="commentForm.get('commentText')?.touched">
+                    <p class="error" *ngIf="commentForm.get('commentText')?.errors?.['minlength']">
+                        Comment text must be at least 10 characters long.
+                    </p>
+                </ng-container>
+                <!-- {isComment && -->
+                <input class="submit btnComment" type="submit" />
+                <!-- } -->
+            </form>
+        </article>
+        <!--} -->
+    </div>
+</section>

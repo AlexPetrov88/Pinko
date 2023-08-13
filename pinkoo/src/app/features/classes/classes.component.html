@@ -1,0 +1,31 @@
+<section class="recipes">
+
+    <form id="search" >
+        <div class="searchContainer">
+            <label for="leg-title">Classes</label>
+            <i class="fas fa-search"></i>
+            <input type="search" id="searchRecipe" name="search" placeholder="Search classes" />
+            <a routerLink="/createClass" class="link"><button class="btn">CreateNewClasses</button></a>
+        </div>
+    </form>
+    
+    <div class="recipeContainer">
+
+        <div *ngFor="let class of classesList" class="card">
+            <div class="card__imgContainer">
+                <img src={{class.imageUrl}} alt="" class="card__imgContainer__img" />
+            </div>
+            <div class="card__content">
+                <h2 class="card__content__title">{{class.title}}</h2>
+                <a [routerLink]="class._id" class="link"><button class="btn">Details</button></a>
+                <!-- <span>Likes: 10</span>  -->
+                
+            </div>
+        </div>
+        
+        <!-- {classes.map(c => <ClassesItem key={c._id} {...c}/>)}
+
+        {classes.length === 0 && (<h3 class="nostyles[-articles"]}>No articles yet</h3>)} -->
+
+    </div>
+</section>

@@ -1,0 +1,73 @@
+
+
+<section id="edit-page" class="auth">
+    <form id="create" [formGroup]="editRecipeForm" (ngSubmit)="editRecipe()">
+        <div class="container">
+            <h1>Edit Recipe</h1>
+            <label for="recipeName">Recipe name:</label>
+            <input type="text" id="recipeName" name="recipeName" formControlName="recipeName" />
+            <ng-container *ngIf="editRecipeForm.get('recipeName')?.touched">
+                <p class="error" *ngIf="editRecipeForm.get('recipeName')?.errors?.['required']">
+                    Recipe name is required.
+                </p>
+                <p class="error" *ngIf="editRecipeForm.get('recipeName')?.errors?.['minlength']">
+                    Recipe name must be at least 2 characters long.
+                </p>
+                <hr *ngIf="editRecipeForm.invalid" />
+            </ng-container>
+
+            <label for="recipeChef">Chef:</label>
+            <input type="text" id="recipeChef" name="chef" formControlName="chef" />
+            <ng-container *ngIf="editRecipeForm.get('chef')?.touched">
+                <p class="error" *ngIf="editRecipeForm.get('chef')?.errors?.['required']">
+                    Chef's name is required.
+                </p>
+                <hr *ngIf="editRecipeForm.invalid" />
+            </ng-container>
+
+            <label for="leg-title">Time for cooking:</label>
+            <input type="text" id="title" name="time" formControlName="time" />
+            <ng-container *ngIf="editRecipeForm.get('time')?.touched">
+                <p class="error" *ngIf="editRecipeForm.get('time')?.errors?.['required']">
+                    Time is required.
+                </p>
+                <p class="error" *ngIf="editRecipeForm.get('time')?.errors?.['numberValidator']">
+                    Enter only numbers.
+                </p>
+                <p class="error" *ngIf="editRecipeForm.get('time')?.errors?.['min']">
+                    Cooking time should be at least 5 minutes
+                </p>
+                <p class="error" *ngIf="editRecipeForm.get('time')?.errors?.['max']">
+                    Cooking time should be no more than 60 minutes.
+                </p>
+                <hr *ngIf="editRecipeForm.invalid" />
+            </ng-container>
+
+            <label for="recipeImg">Image:</label>
+            <input type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl" />
+            <ng-container *ngIf="editRecipeForm.get('imageUrl')?.touched">
+                <p class="error" *ngIf="editRecipeForm.get('imageUrl')?.errors?.['required']">
+                    Image Url is required.
+                </p>
+                <p class="error" *ngIf="editRecipeForm.get('imageUrl')?.errors?.['imageUrlValidator']">
+                    Image Url must start with "https://" or "http://".
+                </p>
+                <hr *ngIf="editRecipeForm.invalid" />
+            </ng-container>
+
+            <label for="summary">Summary:</label>
+            <textarea name="summary" id="summary" formControlName="summary"></textarea>
+            <ng-container *ngIf="editRecipeForm.get('summary')?.touched">
+                <p class="error" *ngIf="editRecipeForm.get('summary')?.errors?.['required']">
+                    Summary text is required.
+                </p>
+                <p class="error" *ngIf="editRecipeForm.get('summary')?.errors?.['minlength']">
+                    Summary text must be at least 10 characters long.
+                </p>
+                <hr *ngIf="editRecipeForm.invalid" />
+            </ng-container>
+
+            <input [disabled]="editRecipeForm.invalid" class="btn submit" type="submit" value="Edit Recipe" />
+        </div>
+    </form>
+</section>

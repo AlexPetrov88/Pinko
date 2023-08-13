@@ -1,0 +1,65 @@
+<section id="edit-page" class="auth">
+    <form id="edit" [formGroup]="createClassForm" (ngSubmit)="createNewClass()" >
+        <div class="container">
+
+            <h1>Create New Class</h1>
+            <label for="title">Class title:</label>
+            <input  type="text" id="recipeName" name="title" formControlName="title" />
+            <ng-container *ngIf="createClassForm.get('title')?.touched">
+                <p class="error" *ngIf="createClassForm.get('title')?.errors?.['required']">
+                    Title is required.
+                </p>
+                <p class="error" *ngIf="createClassForm.get('title')?.errors?.['minlength']">
+                    Title must be at least 2 characters long.
+                </p>
+                <hr *ngIf="createClassForm.invalid" />
+            </ng-container>
+
+            <label for="video">YouTubeVideoURL:</label>
+            <input  type="text" id="recipeChef" name="video" formControlName="video" />
+            <ng-container *ngIf="createClassForm.get('video')?.touched">
+                <p class="error" *ngIf="createClassForm.get('video')?.errors?.['required']">
+                    Video Url is required.
+                </p>
+                <p class="error" *ngIf="createClassForm.get('video')?.errors?.['minlength']">
+                    You need to enter youtube video id which is 11 characters.
+                </p>
+                <p class="error" *ngIf="createClassForm.get('video')?.errors?.['maxlength']">
+                    You need to enter youtube video id which is 11 characters.
+                </p>
+                <hr *ngIf="createClassForm.invalid" />
+            </ng-container>
+            
+
+            <label for="imageUrl">ImageURL:</label>
+            <input  type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl" />
+            <ng-container *ngIf="createClassForm.get('imageUrl')?.touched">
+                <p class="error" *ngIf="createClassForm.get('imageUrl')?.errors?.['required']">
+                    Image Url is required.
+                </p>
+                <p
+                    class="error"
+                    *ngIf="createClassForm.get('imageUrl')?.errors?.['urlValidator']"
+                >
+                    Image Url must start with "https://" or "http://".
+                </p>
+                <hr *ngIf="createClassForm.invalid" />
+            </ng-container>
+
+            <label for="summary">Summary:</label>
+            <textarea  name="summary" id="summary" formControlName="summary"></textarea>
+            <ng-container *ngIf="createClassForm.get('summary')?.touched">
+                <p class="error" *ngIf="createClassForm.get('summary')?.errors?.['required']">
+                    Summary text is required.
+                </p>
+                <p class="error" *ngIf="createClassForm.get('summary')?.errors?.['minlength']">
+                    Summary text must be at least 10 characters long.
+                </p>
+                <hr *ngIf="createClassForm.invalid" />
+            </ng-container>
+           
+            <input class="btn submit" type="submit" value="Edit Class" />
+
+        </div>
+    </form>
+</section>

@@ -1,0 +1,29 @@
+<section class="recipes">
+
+    <form id="search">
+        <div class="searchContainer">
+            <label for="leg-title">Recipes</label>
+            <i class="fas fa-search"></i>
+            <input type="search" id="searchRecipe" name="search" placeholder="Search for food recipes" />
+            <a routerLink="/createRecipe" class="link"><button class="btn">CreateNewRecipe</button></a>
+        </div>
+    </form>
+
+    <div class="recipeContainer">
+
+        <div *ngFor="let recipe of recipesList" class="card">
+            <div class="card__imgContainer">
+                <img src={{recipe.imageUrl}} alt="" class="card__imgContainer__img" />
+            </div>
+            <div class="card__content">
+                <h2 class="card__content__title">{{recipe.recipeName}}</h2>
+                <a [routerLink]="recipe._id" class="link"><button class="btn">Details</button></a>
+
+            </div>
+        </div>
+        <!-- {recipes.map(r => <CatalogItem key={r._id} {...r}/>)}
+
+        {recipes.length === 0 && (<h3 class="nostyles[-articles">No articles yet</h3>)} -->
+
+    </div>
+</section>

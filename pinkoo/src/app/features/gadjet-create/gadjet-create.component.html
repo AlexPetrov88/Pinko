@@ -1,0 +1,56 @@
+<section id="edit-page" class="auth">
+    <form id="edit" [formGroup]="createGadjetForm" (ngSubmit)="createNewGadjet()" >
+        <div class="container">
+
+            <h1>Create New Gadjet</h1>
+            <label for="name">Gadjet name:</label>
+            <input  type="text" id="recipeName" name="name" formControlName="name" />
+            <ng-container *ngIf="createGadjetForm.get('name')?.touched">
+                <p class="error" *ngIf="createGadjetForm.get('name')?.errors?.['required']">
+                    Recipe name is required.
+                </p>
+                <p class="error" *ngIf="createGadjetForm.get('name')?.errors?.['minlength']">
+                    Recipe name must be at least 2 characters long.
+                </p>
+                <hr *ngIf="createGadjetForm.invalid" />
+            </ng-container>
+
+            <label for="price">Price:</label>
+            <input  type="text" id="recipeChef" name="price" formControlName="price" />
+            <ng-container *ngIf="createGadjetForm.get('price')?.touched">
+                <p class="error" *ngIf="createGadjetForm.get('price')?.errors?.['required']">
+                    Price is required.
+                </p>
+                <p class="error" *ngIf="createGadjetForm.get('price')?.errors?.['numberValidator']">
+                    Enter only numbers.
+                </p>
+                <p class="error" *ngIf="createGadjetForm.get('price')?.errors?.['min']">
+                    Price should be at least 5 currency.
+                </p>
+                <p class="error" *ngIf="createGadjetForm.get('price')?.errors?.['max']">
+                    Price should be no more than 300 currency.
+                </p>
+                <hr *ngIf="createGadjetForm.invalid" />
+            </ng-container>
+
+            <label for="imageUrl">ImageURL:</label>
+            <input  type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl" />
+            <ng-container *ngIf="createGadjetForm.get('imageUrl')?.touched">
+                <p class="error" *ngIf="createGadjetForm.get('imageUrl')?.errors?.['required']">
+                    Image Url is required.
+                </p>
+                <p
+                    class="error"
+                    *ngIf="createGadjetForm.get('imageUrl')?.errors?.['urlValidator']"
+                >
+                    Image Url must start with "https://" or "http://".
+                </p>
+                <hr *ngIf="createGadjetForm.invalid" />
+            </ng-container>
+
+            <input class="btn submit" type="submit"  />
+
+
+        </div>
+    </form>
+</section>

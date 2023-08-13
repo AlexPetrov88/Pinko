@@ -1,0 +1,95 @@
+<!-- showModal && 
+            <div class="modal">
+            <div class="modal-content">
+                <h2>{errorText}</h2>
+                <button class="btn" onClick={onModalClick}>OK</button>
+            </div>
+            </div>    
+    
+            <div class="bgOpacity"></div> -->
+
+<section id="register-page" class="content auth">
+    <form id="register" [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="container">
+            <h1>Register</h1>
+
+            <label for="email">Email:</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="maria@email.com"
+                formControlName="email"
+            />
+            <ng-container *ngIf="registerForm.get('email')?.touched">
+                <p class="error" *ngIf="registerForm.get('email')?.errors?.['required']">
+                    Email is required!
+                </p>
+                <p class="error" *ngIf="registerForm.get('email')?.errors?.['emailValidator']">
+                    Email is not valid!
+                </p>
+            </ng-container>
+
+            <!-- -----------------------PASS MATCH REPASS------------------------------- -->
+
+            <ng-container formGroupName="passGroup">
+                <!-- password -->
+                <label for="pass">Password:</label>
+                <input
+                    type="password"
+                    name="password"
+                    id="register-password"
+                    placeholder="******"
+                    formControlName="password"
+                />
+
+                <ng-container *ngIf="registerForm.get('passGroup')?.get('password')?.touched">
+                    <p
+                        class="error"
+                        *ngIf="registerForm.get('passGroup')?.get('password')?.errors?.['required']"
+                    >
+                        Password is required!
+                    </p>
+                    <p
+                        class="error"
+                        *ngIf="registerForm.get('passGroup')?.get('password')?.errors?.['minlength']"
+                    >
+                        Password must be at least
+                        {{registerForm.get('passGroup')?.get('password')?.errors?.['minlength']['requiredLength']}}
+                        characters!
+                    </p>
+                </ng-container>
+
+                <!-- rePassword -->
+                <label for="con-pass">Confirm Password:</label>
+                <input
+                    type="password"
+                    name="rePassword"
+                    id="confirm-password"
+                    placeholder="******"
+                    formControlName="rePassword"
+                />
+                <ng-container *ngIf="registerForm.get('passGroup')?.get('rePassword')?.touched">
+                    <p
+                        class="error"
+                        *ngIf="registerForm.get('passGroup')?.get('rePassword')?.errors?.['required']"
+                    >
+                        Repeat Password is required!
+                    </p>
+                    <p
+                        class="error"
+                        *ngIf="registerForm.get('passGroup')?.errors?.['matchPasswordsValidator']"
+                    >
+                        Repeat Password does not match password!
+                    </p>
+                </ng-container>
+            </ng-container>
+
+            <input class="btn submit" type="submit" value="Register" [disabled]="registerForm.invalid" />
+
+            <p class="field">
+                <span>If you already have profile click <a routerLink="/users/login">Here!</a></span>
+            </p>
+        </div>
+    </form>
+</section>

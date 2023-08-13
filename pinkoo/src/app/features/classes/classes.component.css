@@ -1,0 +1,43 @@
+.searchContainer {
+    border: none;
+    /* text-align: center; */
+    max-width: 33%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.recipeContainer {
+    max-width: 1440px;
+    /* background-color: rgb(251, 104, 134); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+} 
+
+.card {
+    min-width: 320px;
+    margin: 40px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.card__imgContainer {
+    width: 320px;
+    height: 320px;
+}
+
+.card__imgContainer__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__content {
+    text-align: center;
+    background-color: #ECECEC;
+    padding: 16px;
+}

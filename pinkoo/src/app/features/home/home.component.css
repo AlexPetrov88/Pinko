@@ -1,0 +1,32 @@
+.home {
+    position: relative;
+    color: white;
+}
+.homeContainer {
+    position: relative;
+    width: 1440px;
+    height: 550px;
+    background-image: url('../../../assets/images/PinkoGRAFIT.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* opacity: 0.8; */
+}
+
+
+.homeTitle {
+    font-size: 64px;
+    color: rgb(145, 206, 227);
+    position: absolute;
+    left: 370px;
+    top: 200px;
+    z-index: 1;
+}
+
+.homeParagraph {
+    font-size: 32px;
+    position: absolute;
+    left: 250px;
+    bottom: 250px;
+    z-index: 1;
+}

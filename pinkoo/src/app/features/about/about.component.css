@@ -1,0 +1,78 @@
+
+.title-disc{
+    width: 600px;
+    margin: 30px auto;
+   text-align: center;
+}
+.title-aboutUS {
+    color: rgb(197, 37, 91);
+
+}
+.aboutUsContainer {
+    width: 1200px;
+    display: flex;
+    margin: 10px auto; 
+}
+
+.recipeContainer {
+    max-width: 1440px;
+    /* background-color: pink; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+} 
+
+.card {
+    min-width: 320px;
+    margin: 40px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.card__imgContainer {
+    width: 320px;
+    height: 320px;
+    border: 2px solid black;
+    border-radius: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.card__imgContainer__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__content {
+    text-align: center;
+    /* background-color: #ECECEC; */
+    padding: 16px;
+}
+
+.Blue {
+    color: white;
+    border: 1px solid rgb(86, 176, 247);
+    border-radius: 16px;
+    padding: 2px 12px;
+    margin-left: 6px;
+    background-color: rgb(86, 176, 247);
+}
+.Pink {
+    color: white;
+    border: 1px solid rgb(197, 37, 91);
+    border-radius: 16px;
+    padding: 2px 12px;
+    margin-left: 6px;
+    background-color: rgb(197, 37, 91);
+}
+.Green {
+    color: white;
+    border: 1px solid rgb(69, 207, 177);
+    border-radius: 16px;
+    padding: 2px 12px;
+    margin-left: 6px;
+    background-color: rgb(69, 207, 177);
+}

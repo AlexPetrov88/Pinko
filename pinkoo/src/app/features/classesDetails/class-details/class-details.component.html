@@ -1,0 +1,23 @@
+<h1 class="title">{{class?.title}}</h1>
+<div class="topContainer">
+
+    <div>
+        <youtube-player [videoId]="class?.video"> </youtube-player>
+        <!-- <ReactPlayer ref={playerRef} url={VIDEO_PATH} controls={true} /> -->
+    </div>
+    
+
+    <div class="textContainer">
+        <!-- <div class=`${expanded ? "read-more" : "read-less"}`]}> -->
+        <p class="paragraph">{{class?.summary}}</p>
+        <!-- </div> -->
+        <!-- <button onClick={toggleExpanded} class="btn">expanded ? 'Read Less' : 'Read More'</button> -->
+    </div>
+</div>
+<!-- {/* {!isOwner && <span>Like <i class="far fa-thumbs-up"></i></span>} */}
+{isOwner && ( -->
+<div class="btnContainer">
+    <!-- <button class="btn" onClick={() => onDeleteClass(detailsId)}>Delete</button> -->
+    <a routerLink="/classes/${detailsId}/editClassPage" class="link"><button class="btn">Edit</button></a>
+</div>
+<!-- )} -->

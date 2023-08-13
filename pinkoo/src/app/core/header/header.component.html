@@ -1,0 +1,35 @@
+<header>
+    <nav class="navigation">
+        <div class="logoContainer">
+            <h1 class="logoTitle">ChefPinko</h1>
+            <img class="logo" src="../../../assets/images/logo.png" alt="logo.png" width="50" hidden="50" />
+        </div>
+        <ul class="listNav" role="list">
+            <li class="item"><a class="link" routerLink="/home">Home</a></li>
+            <li class="item"><a class="link" routerLink="/aboutUs">About us</a></li>
+            <li class="item"><a class="link" routerLink="/catalog">Recipes</a></li>
+            <li class="item"><a class="link" routerLink="/tools">Shop</a></li>
+            <li class="item"><a class="link" routerLink="/classes">Classes</a></li>
+            <div>
+                <p *ngIf="isLoggedIn">{{email}}</p>
+                
+            </div>
+
+            <!-- {isAuthenticated && ( -->
+            <div *ngIf="isLoggedIn">
+                <!-- <span>{userEmail}</span> -->
+                <a class="link" (click)="logout()"><button class="btn">Logout</button></a>
+            </div>
+
+            <!-- )} -->
+            <!-- {!isAuthenticated && ( -->
+                <div *ngIf="!isLoggedIn">
+                    <a class="link" routerLink='/users/login'><button class="btn">Login</button></a>
+                    <a class="link" routerLink='/users/register'><button class="btn">Register</button></a>
+                </div>
+
+            <!-- )} -->
+
+        </ul>
+    </nav>
+</header>
