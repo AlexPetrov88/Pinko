@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
+import { UsersService } from 'src/app/auth/users/users.service';
 import { urlValidator } from 'src/app/shared/validators/urlValidator';
 
 @Component({
@@ -16,11 +17,8 @@ export class ClassCreateComponent {
     imageUrl: ['', [Validators.required, urlValidator()]],
     summary: ['', [Validators.required, Validators.minLength(10)]]
 });
-constructor(private appService: AppService, private fb: FormBuilder, private router: Router ) {}
+constructor(private appService: AppService, private fb: FormBuilder, private router: Router, private userService: UsersService ) {}
 
-cancelCreateClass() {
-    this.router.navigate(['/catalog']);
-}
 
 createNewClass() {
     if (this.createClassForm.invalid) {
@@ -31,6 +29,8 @@ createNewClass() {
 
     this.appService.createNewClass(title!, video!, imageUrl!, summary!).subscribe(() => {
         this.router.navigate(['/classes'])
+        console.log(this.userService.isLogged);
+        
     })
 }
 }

@@ -9,6 +9,7 @@ import { RecipeCreateComponent } from './features/recipe-create/recipe-create.co
 import { GadjetCreateComponent } from './features/gadjet-create/gadjet-create.component';
 import { ClassCreateComponent } from './features/class-create/class-create.component';
 import { EditRecipeComponent } from './features/edit-recipe/edit-recipe.component';
+import { AuthActivate } from './shared/guards/auth.activate';
 
 const routes: Routes = [
     {
@@ -30,7 +31,8 @@ const routes: Routes = [
     },
     {
         path: 'createRecipe',
-        component: RecipeCreateComponent
+        component: RecipeCreateComponent,
+        canActivate: [AuthActivate]
     },
     {
         path: 'tools',
@@ -38,7 +40,8 @@ const routes: Routes = [
     },
     {
         path: 'createGadjet',
-        component: GadjetCreateComponent
+        component: GadjetCreateComponent,
+        canActivate: [AuthActivate]
     },
     {
         path: 'classes',
@@ -46,7 +49,8 @@ const routes: Routes = [
     },
     {
         path: 'createClass',
-        component: ClassCreateComponent
+        component: ClassCreateComponent,
+        canActivate: [AuthActivate]
     },
     {
         path: 'users',
