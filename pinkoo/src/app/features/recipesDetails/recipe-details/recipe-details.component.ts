@@ -11,7 +11,24 @@ import { Recipe } from 'src/app/interfaces/recipe';
     styleUrls: ['./recipe-details.component.css']
 })
 export class RecipeDetailsComponent implements OnInit {
-    comments: Comment[] = [];
+    comments: any = [
+        {
+            commentText: '',
+            recipeld: '',
+            _createdOn: '',
+            id: '',
+            _ownerId: '',
+            author: {
+                email: '',
+                password: '',
+                _createdOn: '',
+                _id: ''
+            }
+        }
+    ];
+
+    isOwner: boolean = false;
+
     commentForm = this.fb.group({
         commentText: ['', [Validators.minLength(10)]]
     });
@@ -30,17 +47,14 @@ export class RecipeDetailsComponent implements OnInit {
         this.loadComments();
     }
 
-
     onDeleteRecipe() {
         const id = this.activatedRoute.snapshot.params['recipeId'];
 
         const choice = window.confirm('Are you sure you want to delete this!');
         console.log('id', id);
         if (choice) {
-          
             this.appService.deleteRecipe(id).subscribe();
             this.router.navigate(['/catalog']);
-           
         }
     }
 
@@ -60,10 +74,9 @@ export class RecipeDetailsComponent implements OnInit {
 
         if (commentText) {
             this.appService.addComment(id, commentText).subscribe((comment) => {
-                console.log(comment);
-                
+                // console.log(comment);
             });
-        };
+        }
 
         this.loadComments();
     }
@@ -74,9 +87,8 @@ export class RecipeDetailsComponent implements OnInit {
         // console.log('id', id);
         this.appService.getRecipe(id).subscribe((singleRecipe) => {
             this.recipe = singleRecipe;
-            console.log(singleRecipe);
+            this.isOwner = singleRecipe._ownerId === this.userService.user?._id
+            console.log(this.isOwner);
         });
     }
 }
-
-

@@ -36,7 +36,7 @@ export class AppService {
     }
     
     getComments(id: string): Observable<Comment[]> {
-        const searchQuery = encodeURIComponent(`recipeId="${id}"`);
+        const searchQuery = encodeURIComponent(`id="${id}"`);
         const relationQuery = encodeURIComponent(`author=_ownerId:users`);
 
         return this.http.get<Comment[]>(
@@ -45,23 +45,23 @@ export class AppService {
     }
 
     getRecipes() {
-        const { apiUrl } = environment;
-        return this.http.get<Recipe[]>(`${apiUrl}/recipes?sortBy=_createdOn%20desc`);
+        
+        return this.http.get<Recipe[]>(`/data/recipes?sortBy=_createdOn%20desc`);
     }
 
     getClasses() {
-        const { apiUrl } = environment;
-        return this.http.get<Class[]>(`${apiUrl}/classes`);
+        
+        return this.http.get<Class[]>(`/data/classes`);
     }
 
     getClass(id: string) {
-        const { apiUrl } = environment;
-        return this.http.get<Class>(`${apiUrl}/classes/${id}`);
+        
+        return this.http.get<Class>(`/data/classes/${id}`);
     }
 
     getRecipe(id: string) {
-        const { apiUrl } = environment;
-        return this.http.get<Recipe>(`${apiUrl}/recipes/${id}`).pipe(
+        
+        return this.http.get<Recipe>(`/data/recipes/${id}`).pipe(
             tap((recipe) => {
                 this.recipe$$.next(recipe);
             })
@@ -69,8 +69,8 @@ export class AppService {
     }
 
     getGadjets() {
-        const { apiUrl } = environment;
-        return this.http.get<Gadjet[]>(`${apiUrl}/tools`);
+        
+        return this.http.get<Gadjet[]>(`/data/tools`);
     }
 
 

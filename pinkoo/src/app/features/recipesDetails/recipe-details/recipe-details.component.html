@@ -10,22 +10,22 @@
             <p class="recipeTimeForCooking">{{ recipe?.time }}</p>
             <p class="recipeSummary">{{ recipe?.summary }}</p>
             <!-- {isOwner && ( -->
-            <button class="btn" (click)="onDeleteRecipe()">Delete</button>
-            <a routerLink="/edit" class="link"><button class="btn">Edit</button></a>
+            <button *ngIf="isOwner" class="btn" (click)="onDeleteRecipe()">Delete</button>
+            <a *ngIf="isOwner" routerLink="/edit" class="link"><button class="btn">Edit</button></a>
             <!-- )} -->
         </div>
         <div class="details-comments">
             <h2>Comments:</h2>
             <ul role="list" *ngIf="comments">
             
-                <li *ngFor="let comment of comments" class="comment">
+                <li *ngFor="let c of comments" class="comment">
 
-                    <p *ngIf="comment">{{ comment }}: id or name</p>
-                    {{ comment | json }}
+                    <p *ngIf="c">{{c.author.email}}: {{ c.commentText }}</p>
+                    <!-- {{ c | json }} -->
                 </li>
 
             </ul>
-            
+
             <!-- {!recipe.comments?.length && ( -->
             <p class="no-comment">No comments.</p>
             <!-- )} -->

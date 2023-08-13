@@ -49,6 +49,8 @@ export class UsersService implements OnDestroy {
                     token: user.accessToken
                 };
                 this.utilService.setUserData(userData);
+                console.log(user);
+                
             })
         );
     }
@@ -65,6 +67,8 @@ export class UsersService implements OnDestroy {
                         token: user.accessToken
                     };
                     this.utilService.setUserData(userData);
+                console.log(user);
+
                 })
             );
     }
